@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent { dockerfile true }
   tools {
     maven 'M3'
   }
@@ -24,8 +24,7 @@ pipeline {
             steps {
                 echo 'Build Stage'
                 sh "mvn package"
-                docker.build("kapilwebapp:${env.BUILD_ID}")
-            }
+             }
         }
         stage('Deploy') {
             steps {
