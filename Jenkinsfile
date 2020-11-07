@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('CheckOut') {
             steps {
+                git "https://github.com/KapilGonjari/mypublicrepo.git"
                 echo 'CheckOut Stage'
             }
         }
@@ -19,6 +20,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Build Stage'
+                sh "mvn package"
             }
         }
         stage('Deploy') {
