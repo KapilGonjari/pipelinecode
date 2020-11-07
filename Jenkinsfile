@@ -26,5 +26,10 @@ pipeline {
                 echo 'Deploy State'
             }
         }
+      post { 
+        always { 
+            cleanWs()
+        }
+    }
     }
 }
