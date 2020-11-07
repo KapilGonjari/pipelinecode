@@ -24,7 +24,7 @@ pipeline {
             steps {
                 echo 'Build Stage'
                 sh "mvn package"
-                def customImage = docker.build("kapilwebapp:${env.BUILD_ID}")
+                docker.build("kapilwebapp:${env.BUILD_ID}")
             }
         }
         stage('Deploy') {
