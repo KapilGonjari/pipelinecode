@@ -1,5 +1,5 @@
 pipeline {
-  agent { dockerfile true }
+  agent any
   tools {
     maven 'M3'
   }
@@ -29,6 +29,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploy State'
+               archiveArtifacts 'target/*.war'
             }
         }
     }
